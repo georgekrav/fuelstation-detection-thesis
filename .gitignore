@@ -1,0 +1,11 @@
+data/sat_out/
+dataset/**/images/
+dataset/train/images_aug/
+dataset/train/labels_aug/
+*.DS_Store
+*.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+.env
+token.docx

@@ -1,0 +1,2 @@
+station_id,road_id,lat,lon,before_m,after_m
+TEST001,EO31,39.6500,22.4300,100,100
