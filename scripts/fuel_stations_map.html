@@ -2,105 +2,48 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>Fuel Stations Map - Greece</title>
+  <title>Fuel Stations Map</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
   <style>
-    html, body { 
-      height: 100%; 
-      margin: 0; 
-      padding: 0; 
-      font-family: Arial, sans-serif; 
-    }
-    #map { 
-      height: 100vh;
-      width: 100vw;
-    }
+    body { margin: 0; padding: 0; }
+    #map { height: 100vh; width: 100vw; }
   </style>
 </head>
 <body>
 
 <div id="map"></div>
 
-<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<script src="data/markers.js"></script>
+<script src="../data/markers.js"></script>
 
 <script>
-    // Initialize map
-  let map = L.map('map', {
-    center: [39.0742, 21.8243],
-    zoom: 7,
-    zoomControl: true
-  });
+  let map = L.map('map').setView([39.0742, 21.8243], 7);
+  
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-  //  tile layer
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap contributors'
-  }).addTo(map);
-
-  // Φόρτωση markers
-  document.addEventListener('DOMContentLoaded', function() {
-    if (typeof STATIONS !== 'undefined' && STATIONS.length > 0) {
-      const bounds = [];
-      
-      STATIONS.forEach(function(station) {
-        const lat = parseFloat(station.lat);
-        const lon = parseFloat(station.lon);
+  // Check if STATIONS is loaded
+  if (typeof STATIONS !== 'undefined' && STATIONS.length > 0) {
+    STATIONS.forEach(s => {
+      if (s.lat && s.lon) {
+        const color = s.loc_type === "ROOFTOP" ? '#28a745' : '#dc3545';
+        const tooltip = `Station ${s.id}${s.address ? '<br>' + s.address : ''}`;
         
-        if (!isNaN(lat) && !isNaN(lon)) {
-          bounds.push([lat, lon]);
-          
-          // πράσινο για ROOFTOP, κόκκινο για άλλα
-          const isRooftop = station.loc_type && station.loc_type.trim().toUpperCase() === "ROOFTOP";
-          const color = isRooftop ? '#28a745' : '#dc3545';
-          
-          //  marker
-          const marker = L.circleMarker([lat, lon], {
-            radius: 5,
-            fillColor: color,
-            color: '#ffffff',
-            weight: 2,
-            opacity: 1,
-            fillOpacity: 0.8
-          });
-          
-          // Tooltip and address 
-          let tooltipText = 'Station ' + station.id;
-          if (station.address) {
-            tooltipText += '<br>' + station.address;
-          }
-          
-          marker.bindTooltip(tooltipText, {
-            permanent: false,
-            direction: 'top'
-          });
-          
-          marker.addTo(map);
-        }
-      });
-      
-      // Fit bounds 
-      if (bounds.length > 0) {
-        map.fitBounds(bounds, { padding: [20, 20] });
+        L.circleMarker([s.lat, s.lon], {
+          radius: 5,
+          fillColor: color,
+          color: '#fff',
+          weight: 2,
+          fillOpacity: 0.8
+        }).bindTooltip(tooltip).addTo(map);
       }
-    }
-    
-    // Force resize μετά από λίγο
-    setTimeout(function() {
-      map.invalidateSize();
-    }, 500);
-  });
+    });
 
- 
-  window.addEventListener('resize', function() {
-    map.invalidateSize();
-  });
+    map.fitBounds(STATIONS.map(s => [s.lat, s.lon]));
+  } else {
+    console.error('STATIONS data not loaded');
+    alert('Error: Station data not found.');
+  }
 </script>
 </body>
 </html>

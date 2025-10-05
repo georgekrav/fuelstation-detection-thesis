@@ -11,3 +11,5 @@ __pycache__/
 token.docx
 *.xlsx
 *.xls
+scripts/create_google_maps_csv.py
+data/stations_for_google_maps.csv
