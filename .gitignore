@@ -13,3 +13,4 @@ token.docx
 *.xls
 scripts/create_google_maps_csv.py
 data/stations_for_google_maps.csv
+data/fuel_stations_map.html
