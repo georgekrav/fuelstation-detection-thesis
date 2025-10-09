@@ -7,7 +7,7 @@ dataset/train/labels_aug/
 __pycache__/
 *.pyc
 .venv/
-.env
+*.env
 token.docx
 *.xlsx
 *.xls
