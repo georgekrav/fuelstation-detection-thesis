@@ -1,6 +1,6 @@
 # From Geocoding to Computer Vision: Locating Greek Fuel Stations
 
-Demonstrating Geocoding Limitations and Proposing a Vision-Based Solution.
+Demonstrating Geocoding limitations and proposing a computer-vision-based solution.
 This thesis investigates the reliability of geocoding for Greek fuel station addresses and proposes an alternative approach using computer vision. The project consists of two main phases:
 
 ## Phase 1 - Geocoding Analysis:
@@ -33,10 +33,10 @@ Performance Evaluation:Metric analysis **revealing geocoding failures** :
 3. **Despite 99.03% "success rate", ROOFTOP accuracy as low as 1.8-3.7%**
 4. **Maximum errors reaching 300+ kilometers**
 
-Machine Learning Analysis:
+Machine learning analysis:
 
 Random Forest classifier to identify optimal preprocessing per address type. 13 engineered features revealing address pattern complexity
-Results show that even ML-optimized preprocessing cannot achieve reliable accuracy.
+Results show that even machine learning-optimized preprocessing cannot achieve reliable accuracy.
 
 Critical Finding:
 ### While preprocessing improves results a little, geocoding fundamentally **fails for Greek highway addresses**. The high "success rate" hide poor actual accuracy with typical errors of 5-15km making the approach unsuitable for precise location requirements.
