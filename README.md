@@ -1,4 +1,4 @@
-# From Geocoding to Computer Vision: Locating Greek Fuel Stations
+# From geocoding to computer vision: locating Greek fuel stations
 
 Demonstrating Geocoding limitations and proposing a computer-vision-based solution.
 This thesis investigates the reliability of geocoding for Greek fuel station addresses and proposes an alternative approach using computer vision. The project consists of two main phases:
