@@ -15,3 +15,5 @@ scripts/create_google_maps_csv.py
 data/stations_for_google_maps.csv
 data/fuel_stations_map.html
 screenshots/
+data/geocoding_pattern_analysis_ml/old runs/rf_best_model.joblib
+data/geocoding_pattern_analysis_ml/FINAL_REPORT_FOR_PROFESSOR.txt

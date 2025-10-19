@@ -1,0 +1,12 @@
+,v10_add_eo_prefix,v12_simplify_cities_only,v14_add_greece_suffix,v15_add_highway_context,v16_english_translation,v1_original,v2_remove_prefix,v3_normalize_km,v4_remove_punct_v1,v6_remove_dots,v8_combined_basic
+v10_add_eo_prefix,1,0,0,0,0,0,0,0,0,0,0
+v12_simplify_cities_only,0,0,0,0,0,0,0,0,0,1,0
+v14_add_greece_suffix,0,2,1,0,0,5,4,4,0,0,1
+v15_add_highway_context,1,0,2,3,0,1,1,1,0,1,0
+v16_english_translation,0,0,1,1,0,0,1,0,0,0,0
+v1_original,4,2,18,11,5,44,13,12,5,18,6
+v2_remove_prefix,0,1,0,0,0,0,2,0,0,4,1
+v3_normalize_km,0,2,1,0,0,8,2,1,0,0,0
+v4_remove_punct_v1,0,0,0,0,0,0,1,0,0,0,0
+v6_remove_dots,0,1,0,0,0,3,1,0,0,2,0
+v8_combined_basic,0,0,0,0,0,0,0,0,0,2,1
