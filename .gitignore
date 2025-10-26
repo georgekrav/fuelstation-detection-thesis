@@ -18,3 +18,4 @@ screenshots/
 data/geocoding_pattern_analysis_ml/old runs/rf_best_model.joblib
 data/geocoding_pattern_analysis_ml/FINAL_REPORT_FOR_PROFESSOR.txt
 data/google_maps_samples/
+dataset/all
